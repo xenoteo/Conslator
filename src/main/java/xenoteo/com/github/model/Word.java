@@ -11,11 +11,10 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@EqualsAndHashCode
 public class Word {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Exclude
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false)
@@ -30,11 +29,15 @@ public class Word {
     @Column(nullable = false)
     private String germanWithoutGermanLetters;
 
-    public Word(String polish, String german) {
+    @ManyToOne
+    private Lesson lesson;
+
+    public Word(String polish, String german, Lesson lesson) {
         this.polish = polish;
         this.german = german;
         this.polishWithoutPolishLetters = Normalizer.normalize(polish);
         this.germanWithoutGermanLetters = Normalizer.normalize(german);
+        this.lesson = lesson;
     }
 
 }

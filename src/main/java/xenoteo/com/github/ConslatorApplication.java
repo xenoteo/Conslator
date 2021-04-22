@@ -13,8 +13,8 @@ public class ConslatorApplication {
     }
 
     @Bean
-    public CommandLineRunner populateData(DataLoader dataLoader) {
-        return args -> dataLoader.populateData();
+    public CommandLineRunner runConsoleApp(ConsoleApplication consoleApp){
+        return args -> consoleApp.run();
     }
 
 }
