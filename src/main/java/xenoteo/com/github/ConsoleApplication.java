@@ -109,6 +109,10 @@ public class ConsoleApplication {
             Scanner in = new Scanner(System.in);
 
             List<Lesson> lessons = lessonService.findAll();
+            if (lessons.isEmpty()) {
+                System.out.println("There are no lessons to practice yet. Add a new lesson to start practice!");
+                return;
+            }
             System.out.println("Choose the lesson ID (b to go back to the main menu):");
             lessons.forEach(lesson -> System.out.printf("%d - %s\n", lesson.getId(), lesson.getName()));
 
