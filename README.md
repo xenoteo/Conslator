@@ -26,5 +26,9 @@ To run the program run the following command in the project root folder:
   while checking the correctness of provided translation
 - Practice until the user does not make any mistakes
 
+## Possible future works
+- Handling more languages
+- The possibility of lesson and word editions and removals
+
 ## Licence
 This is an open source repo licensed as [MIT License](LICENSE.md).
