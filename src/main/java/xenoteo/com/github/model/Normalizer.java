@@ -4,12 +4,12 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * A class normalizing words, that is replacing polish and german characters.
+ * A class normalizing words, that is replacing Polish and German characters.
  */
 public class Normalizer {
 
     /**
-     * Map from polish special characters to the latin equivalents.
+     * Map from Polish special characters to the latin equivalents.
      */
     private static final Map<Character, Character> polishSpecialMap = Map.of(
             'ą', 'a',
@@ -23,7 +23,7 @@ public class Normalizer {
             'ż', 'z');
 
     /**
-     * Map from german special characters to the latin equivalents.
+     * Map from German special characters to the latin equivalents.
      */
     private static final Map<Character, Character> germanSpecialMap = Map.of(
             'ä', 'a',
@@ -32,17 +32,17 @@ public class Normalizer {
             );
 
     /**
-     * The set of polish special characters.
+     * The set of Polish special characters.
      */
     private static final Set<Character> polishSpecial = polishSpecialMap.keySet();
 
     /**
-     * The set of german special characters.
+     * The set of German special characters.
      */
     private static final Set<Character> germanSpecial = germanSpecialMap.keySet();
 
     /**
-     * Replaces german or polish special characters.
+     * Replaces German or Polish special characters.
      *
      * @param word  the word to normalize
      * @return the normalized word

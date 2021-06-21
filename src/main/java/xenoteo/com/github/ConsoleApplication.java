@@ -71,21 +71,21 @@ public class ConsoleApplication {
          */
         private void createNewLesson(){
             Scanner in = new Scanner(System.in);
-            System.out.print("Enter the lesson name: ");
+            System.out.print("Enter the lesson name (b to go back to the main menu): ");
             String lessonName = in.nextLine();
             if (lessonName.equals("b")) {
                 return;
             }
             Lesson lesson = lessonService.addNewLesson(lessonName);
 
-            System.out.println("Enter the word polish - german pairs (s to stop)");
+            System.out.println("Enter the word Polish - German pairs (s to stop)");
             while (true){
-                System.out.print("polish: ");
+                System.out.print("Polish: ");
                 String polish = in.nextLine();
                 if (polish.equals("s")) {
                     break;
                 }
-                System.out.print("german: ");
+                System.out.print("German: ");
                 String german = in.nextLine();
                 Word word = wordService.addNewWord(polish.toLowerCase(), german.toLowerCase(), lesson);
                 lessonService.addWordToLesson(lesson, word);
@@ -109,7 +109,7 @@ public class ConsoleApplication {
             Scanner in = new Scanner(System.in);
 
             List<Lesson> lessons = lessonService.findAll();
-            System.out.println("Choose the lesson ID:");
+            System.out.println("Choose the lesson ID (b to go back to the main menu):");
             lessons.forEach(lesson -> System.out.printf("%d - %s\n", lesson.getId(), lesson.getName()));
 
             Lesson lesson = getLessonFromInput();
@@ -157,7 +157,7 @@ public class ConsoleApplication {
         }
 
         /**
-         * Gets from the user a direction of the practice (polish -> german or german -> polish).
+         * Gets from the user a direction of the practice (Polish -> German or German -> Polish).
          *
          * @return the chosen direction
          */
@@ -165,8 +165,8 @@ public class ConsoleApplication {
             Scanner in = new Scanner(System.in);
             System.out.print("""
                 Choose a direction:
-                1 for polish -> german
-                2 for german -> polish
+                1 for Polish -> German
+                2 for German -> Polish
                 """);
             String choice = in.nextLine();
             while (!choice.equals("1") && !choice.equals("2")){
@@ -234,7 +234,7 @@ public class ConsoleApplication {
         }
 
         /**
-         * Runs practice from polish to german and remembers the words where user made mistakes.
+         * Runs practice from Polish to German and remembers the words where user made mistakes.
          *
          * @param wordsToPractice  the list of words to practice
          * @return the problem words (the ones with mistakes)
@@ -254,7 +254,7 @@ public class ConsoleApplication {
         }
 
         /**
-         * Runs practice from german to polish and remembers the words where user made mistakes.
+         * Runs practice from German to Polish and remembers the words where user made mistakes.
          *
          * @param wordsToPractice  the list of words to practice
          * @return the problem words (the ones with mistakes)

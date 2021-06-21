@@ -8,8 +8,8 @@ import lombok.Setter;
 import javax.persistence.*;
 
 /**
- * A class representing a word. A word contains full german and polish versions,
- * as well as normalized polish and german versions.
+ * A class representing a word. A word contains full German and Polish versions,
+ * as well as normalized Polish and German versions.
  */
 @Getter
 @Setter
