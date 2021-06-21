@@ -94,6 +94,9 @@ public class ConsoleApplication {
             if (lesson.getWords().isEmpty()) {
                 lessonService.delete(lesson);
             }
+            else {
+                System.out.println("The new lesson is added!");
+            }
         }
     }
 
