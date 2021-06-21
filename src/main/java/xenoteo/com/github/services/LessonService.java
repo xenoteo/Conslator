@@ -25,6 +25,10 @@ public class LessonService {
         return lessonRepository.save(lesson);
     }
 
+    public void delete(Lesson lesson) {
+        lessonRepository.delete(lesson);
+    }
+
     public List<Lesson> findAll(){
         return StreamSupport.stream(lessonRepository.findAll().spliterator(), false)
                 .collect(Collectors.toList());
