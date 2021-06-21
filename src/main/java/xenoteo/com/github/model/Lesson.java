@@ -9,6 +9,9 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * A class representing a lesson, that is a set of pairs of words.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

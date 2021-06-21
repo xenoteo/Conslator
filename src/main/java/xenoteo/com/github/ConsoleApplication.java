@@ -13,6 +13,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The console application.
+ */
 @Component
 public class ConsoleApplication {
 
@@ -32,6 +35,9 @@ public class ConsoleApplication {
         this.practiceRunner = new PracticeRunner();
     }
 
+    /**
+     * The main function running the application.
+     */
     public void run(){
         Scanner in = new Scanner(System.in);
         boolean running = true;
@@ -55,8 +61,14 @@ public class ConsoleApplication {
         }
     }
 
+    /**
+     * The class responsible for creating new lessons.
+     */
     private class NewLessonCreator {
 
+        /**
+         * Gets input from the user and creates a new lesson.
+         */
         private void createNewLesson(){
             Scanner in = new Scanner(System.in);
             System.out.print("Enter the lesson name: ");
@@ -85,8 +97,14 @@ public class ConsoleApplication {
         }
     }
 
+    /**
+     * A class responsible for running a practice.
+     */
     private class PracticeRunner {
 
+        /**
+         * Gets input from the user, chooses a lesson to practice and starts a practice.
+         */
         private void choosePractice() {
             Scanner in = new Scanner(System.in);
 
@@ -111,6 +129,11 @@ public class ConsoleApplication {
 
         }
 
+        /**
+         * Gets the input from the user, which is necessary to choose a lesson to practice.
+         *
+         * @return the chosen lesson
+         */
         private Lesson getLessonFromInput() {
             Scanner in = new Scanner(System.in);
             Lesson lesson;
@@ -133,6 +156,11 @@ public class ConsoleApplication {
             }
         }
 
+        /**
+         * Gets from the user a direction of the practice (polish -> german or german -> polish).
+         *
+         * @return the chosen direction
+         */
         private String getDirectionFromInput() {
             Scanner in = new Scanner(System.in);
             System.out.print("""
@@ -148,16 +176,30 @@ public class ConsoleApplication {
             return choice;
         }
 
+        /**
+         * Prints word pairs.
+         *
+         * @param words  the words to print
+         */
         private void printWordPairs(Iterable<Word> words) {
             words.forEach(word ->
                     ColoredOutput.printlnBlue(String.format("%s - %s", word.getGerman(), word.getPolish())));
         }
 
+        /**
+         * Clears the console.
+         */
         private void clearConsole() {
             System.out.print("\033[H\033[2J");
             System.out.flush();
         }
 
+        /**
+         * Runs the practice until there is no mistakes made by the user.
+         *
+         * @param lesson  the chosen lesson
+         * @param direction  the chosen direction
+         */
         private void practice(Lesson lesson, String direction) {
             Scanner in = new Scanner(System.in);
 
@@ -191,6 +233,12 @@ public class ConsoleApplication {
             }
         }
 
+        /**
+         * Runs practice from polish to german and remembers the words where user made mistakes.
+         *
+         * @param wordsToPractice  the list of words to practice
+         * @return the problem words (the ones with mistakes)
+         */
         private List<Word> practiceFromPolish(List<Word> wordsToPractice) {
             Scanner in = new Scanner(System.in);
             List<Word> problems = new ArrayList<>();
@@ -205,6 +253,12 @@ public class ConsoleApplication {
             return problems;
         }
 
+        /**
+         * Runs practice from german to polish and remembers the words where user made mistakes.
+         *
+         * @param wordsToPractice  the list of words to practice
+         * @return the problem words (the ones with mistakes)
+         */
         private List<Word> practiceFromGerman(List<Word> wordsToPractice) {
             Scanner in = new Scanner(System.in);
             List<Word> problems = new ArrayList<>();
@@ -221,6 +275,9 @@ public class ConsoleApplication {
         }
     }
 
+    /**
+     * Quits the program.
+     */
     private void quit(){
         System.out.println("See you next time!");
     }

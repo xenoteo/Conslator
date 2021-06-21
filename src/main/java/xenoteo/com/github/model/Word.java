@@ -7,6 +7,10 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ * A class representing a word. A word contains full german and polish versions,
+ * as well as normalized polish and german versions.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

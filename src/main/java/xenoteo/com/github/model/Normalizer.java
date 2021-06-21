@@ -3,8 +3,14 @@ package xenoteo.com.github.model;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * A class normalizing words, that is replacing polish and german characters.
+ */
 public class Normalizer {
 
+    /**
+     * Map from polish special characters to the latin equivalents.
+     */
     private static final Map<Character, Character> polishSpecialMap = Map.of(
             'ą', 'a',
             'ć', 'c',
@@ -16,16 +22,31 @@ public class Normalizer {
             'ź', 'z',
             'ż', 'z');
 
+    /**
+     * Map from german special characters to the latin equivalents.
+     */
     private static final Map<Character, Character> germanSpecialMap = Map.of(
             'ä', 'a',
             'ö', 'o',
             'ü', 'u'
             );
 
+    /**
+     * The set of polish special characters.
+     */
     private static final Set<Character> polishSpecial = polishSpecialMap.keySet();
 
+    /**
+     * The set of german special characters.
+     */
     private static final Set<Character> germanSpecial = germanSpecialMap.keySet();
 
+    /**
+     * Replaces german or polish special characters.
+     *
+     * @param word  the word to normalize
+     * @return the normalized word
+     */
     public static String normalize(String word){
         StringBuilder normalized = new StringBuilder();
         for (char c : word.toCharArray()){
